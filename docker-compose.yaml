@@ -1,8 +1,10 @@
 version: "3.7"
 
 services:
+
     database:
         image: mysql:5.7
+        container_name: database
         environment:
             MYSQL_ROOT_PASSWORD: talha123
             MYSQL_DATABASE: bookstore_db
@@ -11,7 +13,7 @@ services:
         networks:
             - bookstorenet
     webapp:
-        build: .
+        image: bookstore-api:latest
         container_name: mybookstoreapp
         restart: always
         depends_on:
